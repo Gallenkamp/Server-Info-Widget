@@ -32,7 +32,7 @@ return '<table>'.$output.'</table>';
 
 function checkhtaccess($mode) {
 $handle = fopen($modx->getOption('base_path').'.htaccess', 'r');
-switch $mode {
+switch ($mode) {
   case 'exists':
     return 'yes';
   case 'rewrite':
@@ -41,5 +41,6 @@ switch $mode {
     return $content;
   default:
     return false;
+}
 fclose($handle);
 }
