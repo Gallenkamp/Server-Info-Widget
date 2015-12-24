@@ -34,7 +34,12 @@ function checkhtaccess($mode) {
 $handle = fopen($modx->getOption('base_path').'.htaccess', 'r');
 switch ($mode) {
   case 'exists':
-    return 'yes';
+    if ($handle) {
+      return 'yes';
+    }
+    else {
+      return false;
+    }
   case 'rewrite':
     $content = file_get_contents($handle);
     # here: scan for line that activates mod rewrite
